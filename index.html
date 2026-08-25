@@ -24,25 +24,49 @@
             <div class="movies-container">
 
                 <div class="movie-card">
+                    <img src="./assets/oakstreet.jpg" alt="EL final de la calle Oak">
                     <h3>El final de la calle Oak</h3>
-                    <img src="./assets/oakstreet.jpg" alt="oakstreet">
                     <button class="movie-btn" data-movie="El final de la calle Oak">
                         Selececcionar
                     </button>
                 </div>
 
                 <div class="movie-card">
-                    <h3>La noche del demonio: Están entre nosotros</h3>
                     <img src="./assets/insidious.jpeg" alt="La noche del demonio">
-                    <button class="movie-btn" data-movie="insidious">
+                    <h3>La noche del demonio: Están entre nosotros</h3>
+                    <button class="movie-btn" data-movie="La noche del demonio">
                         Seleccionar
                     </button>
                 </div>
 
                 <div class="movie-card">
+                    <img src="./assets/spiderman.jpg" alt="Spider-Man">
                     <h3>Spider-Man: Un nuevo día</h3>
-                    <img src="./assets/spiderman.jpg" alt="spiderman">
                     <button class="movie-btn" data-movie="Spider-Man">
+                        Seleccionar
+                    </button>
+                </div>
+
+                <div class="movie-card">
+                    <img src="./assets/odyssey.jpeg" alt="La Odisea">
+                    <h3>La Odisea</h3>
+                    <button class="movie-btn" data-movie="La Odisea">
+                        Seleccionar
+                    </button>
+                </div>
+
+                <div class="movie-card">
+                    <img src="./assets/toystory.jpeg" alt="Toy Story 5">
+                    <h3>Toy Story 5</h3>
+                    <button class="movie-btn" data-movie="Toy Story 5">
+                        Seleccionar
+                    </button>
+                </div>
+
+                <div class="movie-card">
+                    <img src="./assets/minions.jpeg" alt="Minions & Monstruos">
+                    <h3>Minions & Monstruos</h3>
+                    <button class="movie-btn" data-movie="Minions & Monstruos">
                         Seleccionar
                     </button>
                 </div>
@@ -51,50 +75,62 @@
         </section>
 
         <!-- Reservation Section -->
-        <section id="reservation-section" class="hidden">
+        <div id="modal-overlay" class="hidden">
 
-            <h2>Detalles de la Reserva</h2>
+             <div id="reservation-modal">
 
-            <p>
+                <h2>Detalles de la Reserva</h2>
+
+                <p>
                 Película seleccionada:
                 <strong id="selected-movie"></strong>
-            </p>
+                </p>
 
-            <label for="schedule">
-                Elegí un horario:
-            </label>
+                <label for="schedule">
+                    Elegí un horario:
+                </label>
 
-            <select id="schedule">
-                <option value="18:00">18:00</option>
-                <option value="20:00">20:00</option>
-                <option value="22:00">22:00</option>
-            </select>
+                <select id="schedule">
+                    <option value="18:00">18:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="22:00">22:00</option>
+                </select>
 
-            <label for="tickets">
-                Cantidad de entradas:
-            </label>
+                <label for="tickets">
+                    Cantidad de entradas:
+                </label>
 
-            <input
-                type="number"
-                id="tickets"
-                min="1"
-                value="1"
-            >
+                <input
+                    type="number"
+                    id="tickets"
+                    min="1"
+                    value="1"
+                >
 
-            <button id="confirm-btn">
-                Confirmar Reserva
-            </button>
+                <button id="confirm-btn">
+                    Confirmar Reserva
+                </button>
 
-        </section>
+                <button id="close-modal">✖</button>
+
+            </div>
+
+        </div>
 
         <!-- Success Message -->
-        <section id="success-section" class="hidden">
+        <div id="success-overlay" class="hidden">
 
-            <h2>¡Reserva realizada con éxito!</h2>
+            <div id="success-modal">
 
-            <p id="summary"></p>
+                <h2>¡Reserva realizada con éxito!</h2>
+                <p>Gracias por elegir CinePlus.</p>
 
-        </section>
+                <div id="summary"></div>
+
+                <button id="close-success"> Cerrar </button>
+
+            </div>
+        </div>
 
     </main>
 
