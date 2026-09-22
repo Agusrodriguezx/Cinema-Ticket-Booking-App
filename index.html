@@ -1,140 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinema Ticket Booking</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="marquee-header" aria-label="Cartelera de Cineplus">
+        <div class="marquee-arch">
+            <div class="marquee-arch-content">
+                <span class="star">★</span>
+                <h1>CINEPLUS</h1>
+                <span class="star">★</span>
+            </div>
+        </div>
 
-    <header>
-        <p class="cinema-tag"> ★ DESDE 1992 ★ </p>
-        <h1>Cineplus</h1>
-        <p>Elegí tu película y reservá tus entradas</p>
+        <div class="marquee-board">
+            <div class="marquee-board-inner">
+                <span class="divider">✦</span>
+                <h2>PELÍCULAS DISPONIBLES</h2>
+                <span class="divider">✦</span>
+            </div>
+        </div>
     </header>
 
     <main>
-
-        <!-- Movies Section -->
         <section id="peliculas-section">
-            <h2>Películas Disponibles</h2>
-
             <div class="movies-container">
-
                 <div class="movie-card">
-                    <img src="./assets/oakstreet.jpg" alt="EL final de la calle Oak">
+                    <img src="./assets/oakstreet.jpg" alt="El final de la calle Oak">
                     <h3>El final de la calle Oak</h3>
-                    <button class="movie-btn" data-movie="El final de la calle Oak">
-                        Selececcionar
-                    </button>
+                    <button class="movie-btn" data-movie="El final de la calle Oak">Seleccionar</button>
                 </div>
 
                 <div class="movie-card">
                     <img src="./assets/insidious.jpeg" alt="La noche del demonio">
                     <h3>La noche del demonio: Están entre nosotros</h3>
-                    <button class="movie-btn" data-movie="La noche del demonio">
-                        Seleccionar
-                    </button>
+                    <button class="movie-btn" data-movie="La noche del demonio">Seleccionar</button>
                 </div>
 
                 <div class="movie-card">
                     <img src="./assets/spiderman.jpg" alt="Spider-Man">
                     <h3>Spider-Man: Un nuevo día</h3>
-                    <button class="movie-btn" data-movie="Spider-Man">
-                        Seleccionar
-                    </button>
+                    <button class="movie-btn" data-movie="Spider-Man">Seleccionar</button>
                 </div>
 
                 <div class="movie-card">
                     <img src="./assets/odyssey.jpeg" alt="La Odisea">
                     <h3>La Odisea</h3>
-                    <button class="movie-btn" data-movie="La Odisea">
-                        Seleccionar
-                    </button>
+                    <button class="movie-btn" data-movie="La Odisea">Seleccionar</button>
                 </div>
 
                 <div class="movie-card">
                     <img src="./assets/toystory.jpeg" alt="Toy Story 5">
                     <h3>Toy Story 5</h3>
-                    <button class="movie-btn" data-movie="Toy Story 5">
-                        Seleccionar
-                    </button>
+                    <button class="movie-btn" data-movie="Toy Story 5">Seleccionar</button>
                 </div>
 
                 <div class="movie-card">
-                    <img src="./assets/minions.jpeg" alt="Minions & Monstruos">
-                    <h3>Minions & Monstruos</h3>
-                    <button class="movie-btn" data-movie="Minions & Monstruos">
-                        Seleccionar
-                    </button>
+                    <img src="./assets/minions.jpeg" alt="Minions y Monstruos">
+                    <h3>Minions &amp; Monstruos</h3>
+                    <button class="movie-btn" data-movie="Minions &amp; Monstruos">Seleccionar</button>
                 </div>
-
             </div>
         </section>
 
-        <!-- Reservation Section -->
         <div id="modal-overlay" class="hidden">
-
-             <div id="reservation-modal">
-
+            <div id="reservation-modal">
                 <h2>Detalles de la Reserva</h2>
+                <p>Película seleccionada: <strong id="selected-movie"></strong></p>
 
-                <p>
-                Película seleccionada:
-                <strong id="selected-movie"></strong>
-                </p>
-
-                <label for="schedule">
-                    Elegí un horario:
-                </label>
-
+                <label for="schedule">Elegí un horario:</label>
                 <select id="schedule">
                     <option value="18:00">18:00</option>
                     <option value="20:00">20:00</option>
                     <option value="22:00">22:00</option>
                 </select>
 
-                <label for="tickets">
-                    Cantidad de entradas:
-                </label>
+                <label for="tickets">Cantidad de entradas:</label>
+                <input type="number" id="tickets" min="1" value="1">
 
-                <input
-                    type="number"
-                    id="tickets"
-                    min="1"
-                    value="1"
-                >
-
-                <button id="confirm-btn">
-                    Confirmar Reserva
-                </button>
-
+                <button id="confirm-btn">Confirmar Reserva</button>
                 <button id="close-modal">✖</button>
-
             </div>
-
         </div>
 
-        <!-- Success Message -->
         <div id="success-overlay" class="hidden">
-
             <div id="success-modal">
-
                 <h2>¡Reserva realizada con éxito!</h2>
                 <p>Gracias por elegir CinePlus.</p>
-
                 <div id="summary"></div>
-
-                <button id="close-success"> Cerrar </button>
-
+                <button id="close-success">Cerrar</button>
             </div>
         </div>
-
     </main>
 
     <script src="script.js"></script>
-
 </body>
 </html>
