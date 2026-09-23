@@ -8,276 +8,62 @@
 </head>
 <body>
     <nav class="main-nav" aria-label="Navegación principal">
-        <a class="brand" href="#peliculas-section" aria-label="Ir al inicio de Cineplus">
-            <span class="brand-star">★</span>
-            <span>CINEPLUS</span>
-            <span class="brand-star">★</span>
-        </a>
-
+        <a class="brand" href="#peliculas-section" aria-label="Ir al inicio de Cineplus"><span class="brand-star">★</span><span>CINEPLUS</span><span class="brand-star">★</span></a>
         <div class="nav-links">
             <a class="nav-link" href="#peliculas-section">Cartelera</a>
             <a class="nav-link" href="#candy-bar">Candy Bar</a>
-            <a class="nav-link active" href="#promos">Promos</a>
+            <a class="nav-link" href="#promos">Promos</a>
         </div>
-
-        <button class="cart-button" id="open-cart" aria-label="Abrir carrito">
-            🛒
-            <span class="cart-count" id="cart-count">0</span>
-        </button>
+        <button class="cart-button" id="open-cart" aria-label="Abrir carrito">🛒<span class="cart-count" id="cart-count">0</span></button>
     </nav>
 
     <main>
         <section id="peliculas-section">
             <h1 class="section-title">Películas disponibles</h1>
             <div class="movies-container">
-                <div class="movie-card">
-                    <img src="./assets/oakstreet.jpg" alt="El final de la calle Oak">
-                    <h3>El final de la calle Oak</h3>
-                    <button class="movie-btn" data-movie="El final de la calle Oak">Seleccionar</button>
-                </div>
-                <div class="movie-card">
-                    <img src="./assets/insidious.jpeg" alt="La noche del demonio">
-                    <h3>La noche del demonio: Están entre nosotros</h3>
-                    <button class="movie-btn" data-movie="La noche del demonio">Seleccionar</button>
-                </div>
-                <div class="movie-card">
-                    <img src="./assets/spiderman.jpg" alt="Spider-Man">
-                    <h3>Spider-Man: Un nuevo día</h3>
-                    <button class="movie-btn" data-movie="Spider-Man">Seleccionar</button>
-                </div>
-                <div class="movie-card">
-                    <img src="./assets/odyssey.jpeg" alt="La Odisea">
-                    <h3>La Odisea</h3>
-                    <button class="movie-btn" data-movie="La Odisea">Seleccionar</button>
-                </div>
-                <div class="movie-card">
-                    <img src="./assets/toystory.jpeg" alt="Toy Story 5">
-                    <h3>Toy Story 5</h3>
-                    <button class="movie-btn" data-movie="Toy Story 5">Seleccionar</button>
-                </div>
-                <div class="movie-card">
-                    <img src="./assets/minions.jpeg" alt="Minions y Monstruos">
-                    <h3>Minions &amp; Monstruos</h3>
-                    <button class="movie-btn" data-movie="Minions &amp; Monstruos">Seleccionar</button>
-                </div>
+                <div class="movie-card"><img src="./assets/oakstreet.jpg" alt="El final de la calle Oak"><h3>El final de la calle Oak</h3><button class="movie-btn" data-movie="El final de la calle Oak">Seleccionar</button></div>
+                <div class="movie-card"><img src="./assets/insidious.jpeg" alt="La noche del demonio"><h3>La noche del demonio: Están entre nosotros</h3><button class="movie-btn" data-movie="La noche del demonio">Seleccionar</button></div>
+                <div class="movie-card"><img src="./assets/spiderman.jpg" alt="Spider-Man"><h3>Spider-Man: Un nuevo día</h3><button class="movie-btn" data-movie="Spider-Man">Seleccionar</button></div>
+                <div class="movie-card"><img src="./assets/odyssey.jpeg" alt="La Odisea"><h3>La Odisea</h3><button class="movie-btn" data-movie="La Odisea">Seleccionar</button></div>
+                <div class="movie-card"><img src="./assets/toystory.jpeg" alt="Toy Story 5"><h3>Toy Story 5</h3><button class="movie-btn" data-movie="Toy Story 5">Seleccionar</button></div>
+                <div class="movie-card"><img src="./assets/minions.jpeg" alt="Minions y Monstruos"><h3>Minions &amp; Monstruos</h3><button class="movie-btn" data-movie="Minions &amp; Monstruos">Seleccionar</button></div>
             </div>
         </section>
 
         <section id="candy-bar" class="candy-section">
-            <h2 class="section-title">Candy Bar</h2>
-            <p class="section-subtitle">Elegí tus favoritos para disfrutar la película</p>
-
-            <div class="candy-category">
-                <h3 class="category-title">Pochoclos</h3>
-                <div class="products-grid">
-                    <article class="product-card">
-                        <img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Bolsa de pochoclos">
-                        <div class="product-info"><h4>Bolsa de pochoclos</h4><div class="product-footer"><span>$8.000</span><button type="button" class="add-button" data-name="Bolsa de pochoclos" data-price="8000">Agregar</button></div></div>
-                    </article>
-                    <article class="product-card">
-                        <img src="https://images.unsplash.com/photo-1578849278619-2f96e0f4b4b7?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Balde de pochoclos">
-                        <div class="product-info"><h4>Balde de pochoclos</h4><div class="product-footer"><span>$12.000</span><button type="button" class="add-button" data-name="Balde de pochoclos" data-price="12000">Agregar</button></div></div>
-                    </article>
-                </div>
-            </div>
-
-            <div class="candy-category">
-                <h3 class="category-title">Bebidas</h3>
-                <div class="products-grid">
-                    <article class="product-card">
-                        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Vaso mediano de gaseosa">
-                        <div class="product-info"><h4>Vaso mediano</h4><div class="product-footer"><span>$5.000</span><button type="button" class="add-button" data-name="Vaso mediano" data-price="5000">Agregar</button></div></div>
-                    </article>
-                    <article class="product-card">
-                        <img src="https://images.unsplash.com/photo-1629203849820-fdd70d49c38e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Vaso grande de gaseosa">
-                        <div class="product-info"><h4>Vaso grande</h4><div class="product-footer"><span>$6.500</span><button type="button" class="add-button" data-name="Vaso grande" data-price="6500">Agregar</button></div></div>
-                    </article>
-                </div>
-            </div>
-
-            <div class="candy-category">
-                <h3 class="category-title">Snacks</h3>
-                <div class="products-grid">
-                    <article class="product-card">
-                        <img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Nachos con cheddar">
-                        <div class="product-info"><h4>Nachos con cheddar</h4><div class="product-footer"><span>$10.000</span><button type="button" class="add-button" data-name="Nachos con cheddar" data-price="10000">Agregar</button></div></div>
-                    </article>
-                    <article class="product-card">
-                        <img src="https://images.unsplash.com/photo-1612392062631-94dd858cba88?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Pancho">
-                        <div class="product-info"><h4>Pancho</h4><div class="product-footer"><span>$5.000</span><button type="button" class="add-button" data-name="Pancho" data-price="5000">Agregar</button></div></div>
-                    </article>
-                    <article class="product-card">
-                        <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Snacks salados">
-                        <div class="product-info"><h4>Snacks</h4><div class="product-footer"><span>$4.500</span><button type="button" class="add-button" data-name="Snacks" data-price="4500">Agregar</button></div></div>
-                    </article>
-                </div>
-            </div>
-
-            <div class="candy-category">
-                <h3 class="category-title">Combos</h3>
-                <div class="products-grid">
-                    <article class="product-card">
-                        <img src="https://images.unsplash.com/photo-1578849278619-2f96e0f4b4b7?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Bolsa de pochoclos y gaseosa">
-                        <div class="product-info"><h4>Bolsa de pochoclos + gaseosa</h4><div class="product-footer"><span>$12.000</span><button type="button" class="add-button" data-name="Bolsa de pochoclos + gaseosa" data-price="12000">Agregar</button></div></div>
-                    </article>
-                    <article class="product-card">
-                        <img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Balde de pochoclos y dos gaseosas">
-                        <div class="product-info"><h4>Balde de pochoclos + 2 gaseosas</h4><div class="product-footer"><span>$22.000</span><button type="button" class="add-button" data-name="Balde de pochoclos + 2 gaseosas" data-price="22000">Agregar</button></div></div>
-                    </article>
-                </div>
-            </div>
+            <h2 class="section-title">Candy Bar</h2><p class="section-subtitle">Elegí tus favoritos para disfrutar la película</p>
+            <div class="candy-category"><h3 class="category-title">Pochoclos</h3><div class="products-grid">
+                <article class="product-card"><img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Bolsa de pochoclos"><div class="product-info"><h4>Bolsa de pochoclos</h4><div class="product-footer"><span>$8.000</span><button class="add-button" data-name="Bolsa de pochoclos" data-price="8000">Agregar</button></div></div></article>
+                <article class="product-card"><img src="https://images.unsplash.com/photo-1578849278619-2f96e0f4b4b7?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Balde de pochoclos"><div class="product-info"><h4>Balde de pochoclos</h4><div class="product-footer"><span>$12.000</span><button class="add-button" data-name="Balde de pochoclos" data-price="12000">Agregar</button></div></div></article>
+            </div></div>
+            <div class="candy-category"><h3 class="category-title">Bebidas</h3><div class="products-grid">
+                <article class="product-card"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Vaso mediano de gaseosa"><div class="product-info"><h4>Vaso mediano</h4><div class="product-footer"><span>$5.000</span><button class="add-button" data-name="Vaso mediano" data-price="5000">Agregar</button></div></div></article>
+                <article class="product-card"><img src="https://images.unsplash.com/photo-1629203849820-fdd70d49c38e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Vaso grande de gaseosa"><div class="product-info"><h4>Vaso grande</h4><div class="product-footer"><span>$6.500</span><button class="add-button" data-name="Vaso grande" data-price="6500">Agregar</button></div></div></article>
+            </div></div>
+            <div class="candy-category"><h3 class="category-title">Snacks</h3><div class="products-grid">
+                <article class="product-card"><img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Nachos con cheddar"><div class="product-info"><h4>Nachos con cheddar</h4><div class="product-footer"><span>$10.000</span><button class="add-button" data-name="Nachos con cheddar" data-price="10000">Agregar</button></div></div></article>
+                <article class="product-card"><img src="https://images.unsplash.com/photo-1612392062631-94dd858cba88?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Pancho"><div class="product-info"><h4>Pancho</h4><div class="product-footer"><span>$5.000</span><button class="add-button" data-name="Pancho" data-price="5000">Agregar</button></div></div></article>
+                <article class="product-card"><img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Snacks salados"><div class="product-info"><h4>Snacks</h4><div class="product-footer"><span>$4.500</span><button class="add-button" data-name="Snacks" data-price="4500">Agregar</button></div></div></article>
+            </div></div>
+            <div class="candy-category"><h3 class="category-title">Combos</h3><div class="products-grid">
+                <article class="product-card"><img src="https://images.unsplash.com/photo-1578849278619-2f96e0f4b4b7?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Bolsa de pochoclos y gaseosa"><div class="product-info"><h4>Bolsa de pochoclos + gaseosa</h4><div class="product-footer"><span>$12.000</span><button class="add-button" data-name="Bolsa de pochoclos + gaseosa" data-price="12000">Agregar</button></div></div></article>
+                <article class="product-card"><img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Balde de pochoclos y dos gaseosas"><div class="product-info"><h4>Balde de pochoclos + 2 gaseosas</h4><div class="product-footer"><span>$22.000</span><button class="add-button" data-name="Balde de pochoclos + 2 gaseosas" data-price="22000">Agregar</button></div></div></article>
+            </div></div>
         </section>
 
-        <section id="promos" class="promo-section">
-            <h2 class="section-title">Promos</h2>
-            <p class="section-subtitle">Disfrutá tus películas favoritas con beneficios exclusivos</p>
+        <section id="promos" class="promo-section"><h2 class="section-title">Promos</h2><p class="section-subtitle">Disfrutá tus películas favoritas con beneficios exclusivos</p><div class="promos-grid">
+            <article class="promo-card"><span class="promo-badge">Días especiales</span><h3>Lunes, martes y miércoles: 50% OFF</h3><p>Aprovechá la mitad de precio en tus entradas durante los primeros días de la semana.</p></article>
+            <article class="promo-card"><span class="promo-badge">Domingos</span><h3>Domingo 3x2</h3><p>Vení con tus amigos o familia y disfrutá tres entradas pagando solamente dos.</p></article>
+            <article class="promo-card"><span class="promo-badge">Todos los días</span><h3>Banco FeliMás: 2x1</h3><p>Pagando con tarjetas del Banco FeliMás, llevás dos entradas al precio de una todos los días.</p></article>
+            <article class="promo-card"><span class="promo-badge">Todos los días</span><h3>Tarjeta Git: 2x1</h3><p>Pagando con tu Tarjeta Git, disfrutás dos entradas pagando solamente una todos los días.</p></article>
+        </div></section>
 
-            <div class="promos-grid">
-                <article class="promo-card">
-                    <span class="promo-badge">Días especiales</span>
-                    <h3>Lunes, martes y miércoles: 50% OFF</h3>
-                    <p>Aprovechá la mitad de precio en tus entradas durante los primeros días de la semana.</p>
-                </article>
-
-                <article class="promo-card">
-                    <span class="promo-badge">Domingos</span>
-                    <h3>Domingo 3x2</h3>
-                    <p>Vení con tus amigos o familia y disfrutá tres entradas pagando solamente dos.</p>
-                </article>
-
-                <article class="promo-card">
-                    <span class="promo-badge">Todos los días</span>
-                    <h3>Banco FeliMás: 2x1</h3>
-                    <p>Pagando con tarjetas del Banco FeliMás, llevás dos entradas al precio de una todos los días.</p>
-                </article>
-
-                <article class="promo-card">
-                    <span class="promo-badge">Todos los días</span>
-                    <h3>Tarjeta CPS: 2x1</h3>
-                    <p>Presentá tu Tarjeta CPS y disfrutá de dos entradas pagando solamente una.</p>
-                </article>
-            </div>
-        </section>
-
-        <div id="modal-overlay" class="hidden">
-            <div id="reservation-modal">
-                <h2>Detalles de la Reserva</h2>
-                <p>Película seleccionada: <strong id="selected-movie"></strong></p>
-                <label for="schedule">Elegí un horario:</label>
-                <select id="schedule"><option value="18:00">18:00</option><option value="20:00">20:00</option><option value="22:00">22:00</option></select>
-                <label for="tickets">Cantidad de entradas:</label>
-                <input type="number" id="tickets" min="1" value="1">
-                <button id="confirm-btn">Confirmar Reserva</button>
-                <button id="close-modal">✖</button>
-            </div>
-        </div>
-
-        <div id="success-overlay" class="hidden">
-            <div id="success-modal"><h2>¡Reserva realizada con éxito!</h2><p>Gracias por elegir CinePlus.</p><div id="summary"></div><button id="close-success">Cerrar</button></div>
-        </div>
+        <div id="modal-overlay" class="hidden"><div id="reservation-modal"><h2>Detalles de la Reserva</h2><p>Película seleccionada: <strong id="selected-movie"></strong></p><label for="schedule">Elegí un horario:</label><select id="schedule"><option value="18:00">18:00</option><option value="20:00">20:00</option><option value="22:00">22:00</option></select><label for="tickets">Cantidad de entradas:</label><input type="number" id="tickets" min="1" value="1"><button id="confirm-btn">Confirmar Reserva</button><button id="close-modal">✖</button></div></div>
+        <div id="success-overlay" class="hidden"><div id="success-modal"><h2>¡Reserva realizada con éxito!</h2><p>Gracias por elegir CinePlus.</p><div id="summary"></div><button id="close-success">Cerrar</button></div></div>
     </main>
 
-    <div class="cart-overlay" id="cart-overlay">
-        <aside class="cart-panel" aria-label="Carrito de compras">
-            <div class="cart-header">
-                <h2>Tu carrito</h2>
-                <button class="close-cart" id="close-cart" aria-label="Cerrar carrito">×</button>
-            </div>
-
-            <div class="cart-items" id="cart-items">
-                <p class="empty-cart">Tu carrito está vacío.<br>Agregá productos del Candy Bar.</p>
-            </div>
-
-            <div class="cart-footer">
-                <div class="cart-total">
-                    <span>Total</span>
-                    <span id="cart-total">$0</span>
-                </div>
-                <button class="checkout-button" type="button">Continuar compra</button>
-            </div>
-        </aside>
-    </div>
-
+    <div class="cart-overlay" id="cart-overlay"><aside class="cart-panel" aria-label="Carrito de compras"><div class="cart-header"><h2>Tu carrito</h2><button class="close-cart" id="close-cart" aria-label="Cerrar carrito">×</button></div><div class="cart-items" id="cart-items"><p class="empty-cart">Tu carrito está vacío.<br>Agregá productos del Candy Bar.</p></div><div class="cart-footer"><div class="cart-total"><span>Total</span><span id="cart-total">$0</span></div><button class="checkout-button" type="button">Continuar compra</button></div></aside></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="script.js"></script>
-    <script>
-        const cart = [];
-        const cartOverlay = document.getElementById('cart-overlay');
-        const cartItems = document.getElementById('cart-items');
-        const cartCount = document.getElementById('cart-count');
-        const cartTotal = document.getElementById('cart-total');
-
-        const openCartBtn = document.getElementById('open-cart');
-        const closeCartBtn = document.getElementById('close-cart');
-
-        openCartBtn.addEventListener('click', () => cartOverlay.classList.add('open'));
-        closeCartBtn.addEventListener('click', () => cartOverlay.classList.remove('open'));
-        cartOverlay.addEventListener('click', (event) => {
-            if (event.target === cartOverlay) cartOverlay.classList.remove('open');
-        });
-
-        document.querySelectorAll('.add-button').forEach((button) => {
-            button.addEventListener('click', () => {
-                const name = button.dataset.name;
-                const price = Number(button.dataset.price);
-                const existingProduct = cart.find((item) => item.name === name);
-
-                if (existingProduct) {
-                    existingProduct.quantity += 1;
-                } else {
-                    cart.push({ name, price, quantity: 1 });
-                }
-
-                renderCart();
-                cartOverlay.classList.add('open');
-            });
-        });
-
-        function renderCart() {
-            if (!cart.length) {
-                cartItems.innerHTML = '<p class="empty-cart">Tu carrito está vacío.<br>Agregá productos del Candy Bar.</p>';
-            } else {
-                cartItems.innerHTML = cart.map((item, index) => `
-                    <div class="cart-item">
-                        <div>
-                            <h3>${item.name}</h3>
-                            <p>${formatPrice(item.price * item.quantity)}</p>
-                        </div>
-                        <div class="cart-controls">
-                            <button class="quantity-button" type="button" onclick="changeQuantity(${index}, -1)">−</button>
-                            <strong>${item.quantity}</strong>
-                            <button class="quantity-button" type="button" onclick="changeQuantity(${index}, 1)">+</button>
-                            <button class="remove-button" type="button" onclick="removeItem(${index})">×</button>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-            const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-            cartCount.textContent = totalItems;
-            cartTotal.textContent = formatPrice(totalPrice);
-        }
-
-        window.changeQuantity = (index, amount) => {
-            cart[index].quantity += amount;
-            if (cart[index].quantity <= 0) {
-                cart.splice(index, 1);
-            }
-            renderCart();
-        };
-
-        window.removeItem = (index) => {
-            cart.splice(index, 1);
-            renderCart();
-        };
-
-        function formatPrice(value) {
-            return new Intl.NumberFormat('es-AR', {
-                style: 'currency',
-                currency: 'ARS',
-                maximumFractionDigits: 0
-            }).format(value);
-        }
-    </script>
 </body>
 </html>
