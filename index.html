@@ -7,57 +7,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="marquee-header" aria-label="Cartelera de Cineplus">
-        <div class="marquee-arch">
-            <div class="marquee-arch-content">
-                <span class="star">★</span>
-                <h1>CINEPLUS</h1>
-                <span class="star">★</span>
-            </div>
-        </div>
+    <nav class="main-nav" aria-label="Navegación principal">
+        <a class="brand" href="#peliculas-section" aria-label="Ir al inicio de Cineplus">
+            <span class="brand-star">★</span>
+            <span>CINEPLUS</span>
+            <span class="brand-star">★</span>
+        </a>
 
-        <div class="marquee-board">
-            <div class="marquee-board-inner">
-                <span class="divider">✦</span>
-                <h2>PELÍCULAS DISPONIBLES</h2>
-                <span class="divider">✦</span>
-            </div>
+        <div class="nav-links">
+            <a class="nav-link" href="#peliculas-section">Cartelera</a>
+            <a class="nav-link" href="#candy-bar">Candy Bar</a>
+            <a class="nav-link" href="#promos">Promos</a>
         </div>
-    </header>
+    </nav>
 
     <main>
         <section id="peliculas-section">
+            <h1 class="section-title">Películas disponibles</h1>
             <div class="movies-container">
                 <div class="movie-card">
                     <img src="./assets/oakstreet.jpg" alt="El final de la calle Oak">
                     <h3>El final de la calle Oak</h3>
                     <button class="movie-btn" data-movie="El final de la calle Oak">Seleccionar</button>
                 </div>
-
                 <div class="movie-card">
                     <img src="./assets/insidious.jpeg" alt="La noche del demonio">
                     <h3>La noche del demonio: Están entre nosotros</h3>
                     <button class="movie-btn" data-movie="La noche del demonio">Seleccionar</button>
                 </div>
-
                 <div class="movie-card">
                     <img src="./assets/spiderman.jpg" alt="Spider-Man">
                     <h3>Spider-Man: Un nuevo día</h3>
                     <button class="movie-btn" data-movie="Spider-Man">Seleccionar</button>
                 </div>
-
                 <div class="movie-card">
                     <img src="./assets/odyssey.jpeg" alt="La Odisea">
                     <h3>La Odisea</h3>
                     <button class="movie-btn" data-movie="La Odisea">Seleccionar</button>
                 </div>
-
                 <div class="movie-card">
                     <img src="./assets/toystory.jpeg" alt="Toy Story 5">
                     <h3>Toy Story 5</h3>
                     <button class="movie-btn" data-movie="Toy Story 5">Seleccionar</button>
                 </div>
-
                 <div class="movie-card">
                     <img src="./assets/minions.jpeg" alt="Minions y Monstruos">
                     <h3>Minions &amp; Monstruos</h3>
@@ -66,21 +58,21 @@
             </div>
         </section>
 
+        <section id="candy-bar" class="placeholder-section"><h2>Candy Bar</h2></section>
+        <section id="promos" class="placeholder-section"><h2>Promos</h2></section>
+
         <div id="modal-overlay" class="hidden">
             <div id="reservation-modal">
                 <h2>Detalles de la Reserva</h2>
                 <p>Película seleccionada: <strong id="selected-movie"></strong></p>
-
                 <label for="schedule">Elegí un horario:</label>
                 <select id="schedule">
                     <option value="18:00">18:00</option>
                     <option value="20:00">20:00</option>
                     <option value="22:00">22:00</option>
                 </select>
-
                 <label for="tickets">Cantidad de entradas:</label>
                 <input type="number" id="tickets" min="1" value="1">
-
                 <button id="confirm-btn">Confirmar Reserva</button>
                 <button id="close-modal">✖</button>
             </div>
