@@ -58,7 +58,71 @@
             </div>
         </section>
 
-        <section id="candy-bar" class="placeholder-section"><h2>Candy Bar</h2></section>
+        <section id="candy-bar" class="candy-section">
+            <h2 class="section-title">Candy Bar</h2>
+            <p class="section-subtitle">Elegí tus favoritos para disfrutar la película</p>
+
+            <div class="candy-category">
+                <h3 class="category-title">Pochoclos</h3>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Bolsa de pochoclos">
+                        <div class="product-info"><h4>Bolsa de pochoclos</h4><div class="product-footer"><span>$8.000</span><button type="button">Agregar</button></div></div>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1578849278619-2f96e0f4b4b7?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Balde de pochoclos">
+                        <div class="product-info"><h4>Balde de pochoclos</h4><div class="product-footer"><span>$12.000</span><button type="button">Agregar</button></div></div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="candy-category">
+                <h3 class="category-title">Bebidas</h3>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Vaso mediano de gaseosa">
+                        <div class="product-info"><h4>Vaso mediano</h4><div class="product-footer"><span>$5.000</span><button type="button">Agregar</button></div></div>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1629203849820-fdd70d49c38e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Vaso grande de gaseosa">
+                        <div class="product-info"><h4>Vaso grande</h4><div class="product-footer"><span>$6.500</span><button type="button">Agregar</button></div></div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="candy-category">
+                <h3 class="category-title">Snacks</h3>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Nachos con cheddar">
+                        <div class="product-info"><h4>Nachos con cheddar</h4><div class="product-footer"><span>$10.000</span><button type="button">Agregar</button></div></div>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1612392062631-94dd858cba88?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Pancho">
+                        <div class="product-info"><h4>Pancho</h4><div class="product-footer"><span>$5.000</span><button type="button">Agregar</button></div></div>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Snacks salados">
+                        <div class="product-info"><h4>Snacks</h4><div class="product-footer"><span>$4.500</span><button type="button">Agregar</button></div></div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="candy-category">
+                <h3 class="category-title">Combos</h3>
+                <div class="products-grid">
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1578849278619-2f96e0f4b4b7?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Bolsa de pochoclos y gaseosa">
+                        <div class="product-info"><h4>Bolsa de pochoclos + gaseosa</h4><div class="product-footer"><span>$12.000</span><button type="button">Agregar</button></div></div>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Balde de pochoclos y dos gaseosas">
+                        <div class="product-info"><h4>Balde de pochoclos + 2 gaseosas</h4><div class="product-footer"><span>$22.000</span><button type="button">Agregar</button></div></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section id="promos" class="placeholder-section"><h2>Promos</h2></section>
 
         <div id="modal-overlay" class="hidden">
@@ -66,11 +130,7 @@
                 <h2>Detalles de la Reserva</h2>
                 <p>Película seleccionada: <strong id="selected-movie"></strong></p>
                 <label for="schedule">Elegí un horario:</label>
-                <select id="schedule">
-                    <option value="18:00">18:00</option>
-                    <option value="20:00">20:00</option>
-                    <option value="22:00">22:00</option>
-                </select>
+                <select id="schedule"><option value="18:00">18:00</option><option value="20:00">20:00</option><option value="22:00">22:00</option></select>
                 <label for="tickets">Cantidad de entradas:</label>
                 <input type="number" id="tickets" min="1" value="1">
                 <button id="confirm-btn">Confirmar Reserva</button>
@@ -79,15 +139,9 @@
         </div>
 
         <div id="success-overlay" class="hidden">
-            <div id="success-modal">
-                <h2>¡Reserva realizada con éxito!</h2>
-                <p>Gracias por elegir CinePlus.</p>
-                <div id="summary"></div>
-                <button id="close-success">Cerrar</button>
-            </div>
+            <div id="success-modal"><h2>¡Reserva realizada con éxito!</h2><p>Gracias por elegir CinePlus.</p><div id="summary"></div><button id="close-success">Cerrar</button></div>
         </div>
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
