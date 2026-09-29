@@ -1,10 +1,8 @@
+/* ---------- 1) Flujo de reserva ---------- */
 (function () {
   'use strict';
 
   /* ---------- Configuración ---------- */
-  var AUTO_HOOK = true;        // true: intercepta los botones "Seleccionar" existentes
-  var HOOK_TEXT = 'seleccionar';
-  var TITLE_SELECTOR = 'h3, h2, h4, .movie-title, .title'; // dónde buscar el título de la película
   var SEAT_ROWS = 'ABCDEFGH';  // A = más cerca de la pantalla
   var SEATS_PER_ROW = 10;      // pasillo después de la butaca 5
   var MAX_SEATS = 10;
@@ -15,7 +13,6 @@
     { id: 'sub', label: 'Subtituladas', note: 'Audio original', times: ['17:15', '19:45', '22:15'] }
   ];
 
-  // Tipos de entrada: "size" = cuántas entradas cubre cada unidad (los packs cubren 2 o 3).
   var TICKETS = [
     { id: 'general', name: 'Entrada general', desc: 'Precio regular', size: 1, price: 12000 },
     { id: 'mitad',   name: '50% OFF', desc: 'Válida lunes, martes y miércoles', size: 1, price: 6000, days: [1, 2, 3] },
@@ -24,21 +21,23 @@
     { id: 'git',     name: 'Tarjeta Git 2x1', desc: 'Pack de 2 entradas al precio de 1. Pagando con Tarjeta Git', size: 2, price: 12000, card: 'Tarjeta Git' }
   ];
 
-  var CANDY = [
-    { cat: 'Pochoclos', items: [
-      { id: 'p1', name: 'Bolsa de pochoclos', price: 8000,  img: 'https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&fit=crop&w=200&q=70' },
-      { id: 'p2', name: 'Balde de pochoclos', price: 12000, img: 'https://images.unsplash.com/photo-1578849278619-2f96e0f4b4b7?auto=format&fit=crop&w=200&q=70' } ] },
-    { cat: 'Bebidas', items: [
-      { id: 'b1', name: 'Vaso mediano', price: 5000, img: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=200&q=70' },
-      { id: 'b2', name: 'Vaso grande',  price: 6500, img: 'https://images.unsplash.com/photo-1629203849820-fdd70d49c38e?auto=format&fit=crop&w=200&q=70' } ] },
-    { cat: 'Snacks', items: [
-      { id: 's1', name: 'Nachos con cheddar', price: 10000, img: 'https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?auto=format&fit=crop&w=200&q=70' },
-      { id: 's2', name: 'Pancho',  price: 5000, img: 'https://images.unsplash.com/photo-1612392062631-94dd858cba88?auto=format&fit=crop&w=200&q=70' },
-      { id: 's3', name: 'Snacks',  price: 4500, img: 'https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=200&q=70' } ] },
-    { cat: 'Combos', items: [
-      { id: 'c1', name: 'Bolsa de pochoclos + gaseosa',    price: 12000, img: 'https://images.unsplash.com/photo-1578849278619-2f96e0f4b4b7?auto=format&fit=crop&w=200&q=70' },
-      { id: 'c2', name: 'Balde de pochoclos + 2 gaseosas', price: 22000, img: 'https://images.unsplash.com/photo-1585647347384-2593bc35786b?auto=format&fit=crop&w=200&q=70' } ] }
-  ];
+  var CANDY = [];
+  function readCandy() {
+    var groups = {}, order = [];
+    document.querySelectorAll('.add-button').forEach(function (btn) {
+      var card = btn.closest('.product-card'), cat = btn.closest('.candy-category');
+      var catName = cat && cat.querySelector('.category-title') ? cat.querySelector('.category-title').textContent.trim() : 'Candy bar';
+      var img = card && card.querySelector('img');
+      if (!groups[catName]) { groups[catName] = []; order.push(catName); }
+      groups[catName].push({ id: btn.dataset.name, name: btn.dataset.name, price: Number(btn.dataset.price), img: img ? img.src : '' });
+    });
+    CANDY = order.map(function (c) { return { cat: c, items: groups[c] }; });
+  }
+  function cartToCandy() { // arranca con lo que ya está en el carrito
+    var o = {};
+    if (typeof cart !== 'undefined') cart.forEach(function (i) { o[i.name] = i.quantity; });
+    return o;
+  }
 
   var STEP_NAMES = ['Función', 'Butacas', 'Entradas', 'Candy bar', 'Pago'];
   var DAY_NAMES = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
@@ -70,7 +69,7 @@
   var S, days, root;
 
   function freshState(movie) {
-    return { movie: movie, step: 1, maxStep: 1, day: 0, show: null, seats: [], tickets: {}, candy: {},
+    return { movie: movie, step: 1, maxStep: 1, day: 0, show: null, seats: [], tickets: {}, candy: cartToCandy(),
              form: { nombre: '', apellido: '', email: '' }, pay: '', cardOk: {}, done: null };
   }
   function taken() {
@@ -175,10 +174,10 @@
       h += '<h4 class="cpb-cat">' + g.cat + '</h4><div class="cpb-list">';
       g.items.forEach(function (i) {
         var q = S.candy[i.id] || 0;
-        h += '<div class="cpb-item"><img src="' + i.img + '" alt="" loading="lazy"><div class="cpb-item-info"><div class="cpb-item-name">' + i.name +
+        h += '<div class="cpb-item">' + (i.img ? '<img src="' + esc(i.img) + '" alt="" loading="lazy">' : '') + '<div class="cpb-item-info"><div class="cpb-item-name">' + esc(i.name) +
              '</div><div class="cpb-item-price">' + fmt(i.price) + '</div></div><div class="cpb-qty">' +
-             '<button type="button" data-a="cd-" data-id="' + i.id + '"' + (q ? '' : ' disabled') + ' aria-label="Quitar">−</button><span>' + q +
-             '</span><button type="button" data-a="cd+" data-id="' + i.id + '" aria-label="Agregar">+</button></div></div>';
+             '<button type="button" data-a="cd-" data-id="' + esc(i.id) + '"' + (q ? '' : ' disabled') + ' aria-label="Quitar">−</button><span>' + q +
+             '</span><button type="button" data-a="cd+" data-id="' + esc(i.id) + '" aria-label="Agregar">+</button></div></div>';
       });
       h += '</div>';
     });
@@ -190,7 +189,7 @@
       '<div><span class="cpb-muted">Función</span><span>' + days[S.day].full + ', ' + S.show.time + ' · ' + S.show.label + '</span></div>' +
       '<div><span class="cpb-muted">Butacas</span><span>' + S.seats.slice().sort(seatSort).join(', ') + '</span></div>';
     TICKETS.forEach(function (t) { if (S.tickets[t.id]) h += '<div><span>' + S.tickets[t.id] + ' × ' + t.name + '</span><span>' + fmt(S.tickets[t.id] * t.price) + '</span></div>'; });
-    CANDY.forEach(function (g) { g.items.forEach(function (i) { if (S.candy[i.id]) h += '<div><span>' + S.candy[i.id] + ' × ' + i.name + '</span><span>' + fmt(S.candy[i.id] * i.price) + '</span></div>'; }); });
+    CANDY.forEach(function (g) { g.items.forEach(function (i) { if (S.candy[i.id]) h += '<div><span>' + S.candy[i.id] + ' × ' + esc(i.name) + '</span><span>' + fmt(S.candy[i.id] * i.price) + '</span></div>'; }); });
     return h + '<div><strong>Total</strong><strong>' + fmt(total()) + '</strong></div></div>';
   }
 
@@ -314,12 +313,14 @@
       paymentMethod: S.pay, total: total() };
     // Enganchate acá para guardar la reserva (fetch a tu backend, localStorage, etc.)
     document.dispatchEvent(new CustomEvent('cineplus:booking', { detail: order }));
+    if (typeof cart !== 'undefined') { cart.length = 0; saveCart(); renderCart(); } // lo del candy bar ya se compró
     render();
   }
 
   function open(movie) {
     if (!root) build();
     days = buildDays();
+    readCandy();
     S = freshState(movie || 'Película');
     render();
     root.classList.add('cpb-open');
@@ -332,21 +333,93 @@
     document.body.classList.remove('cpb-lock');
   }
 
-  /* ---------- Enganche automático con los botones "Seleccionar" ---------- */
-  if (AUTO_HOOK) {
-    document.addEventListener('click', function (e) {
-      var btn = e.target.closest('button, a'); if (!btn || (root && root.contains(btn))) return;
-      if (btn.textContent.trim().toLowerCase() !== HOOK_TEXT) return;
-      var node = btn.parentElement, title = '';
-      while (node && node !== document.body && !title) {
-        var h = node.querySelector(TITLE_SELECTOR);
-        if (h) title = h.textContent.trim();
-        node = node.parentElement;
-      }
-      e.preventDefault(); e.stopImmediatePropagation(); // evita que se abra el modal viejo
-      open(title);
-    }, true);
-  }
+  /* ---------- Click en las tarjetas de la cartelera ---------- */
+  document.querySelectorAll('.movie-card').forEach(function (card) {
+    card.addEventListener('click', function () { open(card.querySelector('h3').textContent.trim()); });
+  });
 
   window.CinePlusBooking = { open: open, close: close };
 })();
+
+/* ---------- 2) Carrito del Candy Bar ---------- */
+
+const CART_STORAGE_KEY = 'cineplus-cart';
+let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+const cartOverlay = document.getElementById('cart-overlay');
+const cartItems = document.getElementById('cart-items');
+const cartCount = document.getElementById('cart-count');
+const cartTotal = document.getElementById('cart-total');
+const toast = document.getElementById('toast');
+let toastTimer;
+
+document.getElementById('open-cart').addEventListener('click', () => cartOverlay.classList.add('open'));
+document.getElementById('close-cart').addEventListener('click', () => cartOverlay.classList.remove('open'));
+cartOverlay.addEventListener('click', (event) => {
+    if (event.target === cartOverlay) cartOverlay.classList.remove('open');
+});
+
+document.querySelectorAll('.add-button').forEach((button) => {
+    button.addEventListener('click', () => {
+        const name = button.dataset.name;
+        const price = Number(button.dataset.price);
+        const existing = cart.find((item) => item.name === name);
+        if (existing) existing.quantity += 1;
+        else cart.push({ name, price, quantity: 1 });
+        saveCart();
+        renderCart();
+        showToast(`${name} agregado al carrito`);
+        cartOverlay.classList.add('open');
+    });
+});
+
+function saveCart() {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+}
+
+function renderCart() {
+    if (!cart.length) {
+        cartItems.innerHTML = '<p class="empty-cart">Tu carrito está vacío.<br>Agregá productos del Candy Bar.</p>';
+    } else {
+        cartItems.innerHTML = cart.map((item, index) => `
+            <div class="cart-item">
+                <div>
+                    <h3>${item.name}</h3>
+                    <p>${formatPrice(item.price * item.quantity)}</p>
+                </div>
+                <div class="cart-controls">
+                    <button class="quantity-button" type="button" onclick="changeQuantity(${index}, -1)">−</button>
+                    <strong>${item.quantity}</strong>
+                    <button class="quantity-button" type="button" onclick="changeQuantity(${index}, 1)">+</button>
+                    <button class="remove-button" type="button" onclick="removeItem(${index})">×</button>
+                </div>
+            </div>`).join('');
+    }
+    cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+    cartTotal.textContent = formatPrice(cart.reduce((total, item) => total + item.price * item.quantity, 0));
+}
+
+window.changeQuantity = (index, amount) => {
+    cart[index].quantity += amount;
+    if (cart[index].quantity <= 0) cart.splice(index, 1);
+    saveCart();
+    renderCart();
+};
+
+window.removeItem = (index) => {
+    cart.splice(index, 1);
+    saveCart();
+    renderCart();
+};
+
+function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
+function formatPrice(value) {
+    return new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(value);
+}
+
+renderCart();
